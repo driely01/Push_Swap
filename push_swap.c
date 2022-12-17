@@ -6,7 +6,7 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:07:52 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/16 22:27:43 by del-yaag         ###   ########.fr       */
+/*   Updated: 2022/12/17 22:18:42 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,27 +79,42 @@ void	min_index(t_stack **a)
 	}
 }
 
+void	r_indexes(t_stack **a, t_stack **b, int num, int real)
+{
+	t_stack	*last;
+	
+	last = ft_lstlast(*b);
+	// if ((last->index >= num - real) && (last->index < num - (real / 2)))
+	// 	retating(a, b, 'b');
+	// else
+	// 	return ;
+	printf("num =[%d]\n", num - real);
+	printf("real =[%d]\n", num - (real / 2));
+}
+
 void	push_2b(t_stack **a, t_stack **b)
 {
 	t_stack	*top;
 	int		num;
-	int		i;
+	size_t	real;
+	size_t	i;
 
-	i = 1;
+	i = 0;
+
 	if (ft_lstsize(*a) >= 5 && ft_lstsize(*a) <= 100)
 		num = ft_lstsize(*a) / 5;
-	printf("num =====> %d\n", num);
-	printf("list =====> %zu\n", ft_lstsize(*a));
-	while (num)
+	else if (ft_lstsize(*a) > 100 && ft_lstsize(*a) <= 500)
+		num = ft_lstsize(*a) / 10;
+	real = num;
+	top = *a;
+	while (top)
 	{
-		top = *a;
-		while (top)
-		{
-			if (top->index <= num)
-				pushing(a, b, 'a');
-			top = top->next;
-		}
-		num--;
+		if (top->index <= num)
+			pushing(&top, b, 'a');
+		else
+			retating(&top, b, 'a');
+		if (ft_lstsize(*b) == num)
+			num += real;
 	}
 }
 
@@ -119,38 +134,14 @@ int	main(int argc, char **argv)
 		else
 		{
 			add_node(&a, argv, argc);
-			// if (is_sorted(&a))
-			// 	return (1);
-			h = a;
-			while (h)
-			{
-				printf("%d\t---->\t%d\n", h->data, h->index);
-				h = h->next;
-			}
 			min_index(&a);
-			printf("\n\n\n");
-			h = a;
+			push_2b(&a, &b);
+			h = b;
 			while (h)
 			{
 				printf("%d\t---->\t%d\n", h->data, h->index);
 				h = h->next;
 			}
-			// push_2b(&a, &b);
-			// printf("\n\n\n");
-			// h = a;
-			// while (h)
-			// {
-			// 	printf("%d\t---->\t%d\n", h->data, h->index);
-			// 	h = h->next;
-			// }
-			// h = b;
-			// while (h)
-			// {
-			// 	printf("B = %d\t---->\t[%d]\n", h->data, h->index);
-			// 	h = h->next;
-			// }
-			// for (int i = 0; i < 51; i++)
-			// 	printf("%d ", i);
 		}
 	}
 	return (0);

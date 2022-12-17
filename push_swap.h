@@ -6,7 +6,7 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:08:04 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/16 19:52:47 by del-yaag         ###   ########.fr       */
+/*   Updated: 2022/12/17 15:09:13 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_stack
 
 size_t		ft_strlen(const char *str);
 size_t		ft_lstsize(t_stack *lst);
+t_stack		*ft_lstlast(t_stack *lst);
 long long	ft_atoi(const char *str);
 void		swap_all(t_stack **a);
 void		swaping(t_stack **a, t_stack **b, char c);
