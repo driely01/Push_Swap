@@ -6,7 +6,7 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:08:04 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/15 15:41:43 by del-yaag         ###   ########.fr       */
+/*   Updated: 2022/12/16 19:52:47 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,14 @@
 
 typedef struct s_stack
 {
+	int				index;
 	int				data;
 	struct s_stack	*next;
 }	t_stack;
+
 size_t		ft_strlen(const char *str);
+size_t		ft_lstsize(t_stack *lst);
 long long	ft_atoi(const char *str);
-int			ft_lstsize(t_stack *lst);
 void		swap_all(t_stack **a);
 void		swaping(t_stack **a, t_stack **b, char c);
 void		push_all(t_stack **a, t_stack **b);
@@ -40,5 +42,6 @@ char		**ft_split(char const *s, char c);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 int			check_num(int argc, char **argv);
 void		add_node(t_stack **a, char **argv, int size);
+int			is_sorted(t_stack **a);
 
 #endif

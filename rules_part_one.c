@@ -6,15 +6,15 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 15:24:00 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/12 15:25:32 by del-yaag         ###   ########.fr       */
+/*   Updated: 2022/12/16 15:24:27 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_lstsize(t_stack *lst)
+size_t	ft_lstsize(t_stack *lst)
 {
-	int		count;
+	size_t		count;
 	t_stack	*ptr;
 
 	count = 0;

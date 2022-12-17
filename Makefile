@@ -6,11 +6,11 @@
 #    By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/07 15:08:14 by del-yaag          #+#    #+#              #
-#    Updated: 2022/12/15 15:39:43 by del-yaag         ###   ########.fr        #
+#    Updated: 2022/12/16 17:47:22 by del-yaag         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = ft_atoi.c rules_part_one.c \
+SRC = ft_atoi.c rules_part_one.c sorting.c\
 		rules_part_two.c ft_strjoin.c split.c ft_substr.c \
 		parce.c
 
@@ -22,7 +22,7 @@ RM = rm -f
 
 NAME = push_swap.a
 
-%.o: %.c ft_printf.h
+%.o: %.c push_swap.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(NAME)
