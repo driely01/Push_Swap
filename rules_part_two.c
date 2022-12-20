@@ -6,7 +6,7 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 15:26:21 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/17 22:15:32 by del-yaag         ###   ########.fr       */
+/*   Updated: 2022/12/20 16:20:08 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	rev_retating(t_stack **a, t_stack **b, char c)
 	else if (c == 'b')
 	{
 		rev_retate(b);
-		write(1, "rra\n", 4);
+		write(1, "rrb\n", 4);
 	}
 	else if (c == 't')
 	{

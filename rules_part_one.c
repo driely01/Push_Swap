@@ -6,7 +6,7 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 15:24:00 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/17 22:15:25 by del-yaag         ###   ########.fr       */
+/*   Updated: 2022/12/18 15:39:53 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,15 +66,13 @@ void	swaping(t_stack **a, t_stack **b, char c)
 void	push_all(t_stack **a, t_stack **b)
 {
 	t_stack	*head;
-	t_stack	*temp;
 
 	if (ft_lstsize(*a) == 0)
 		return ;
 	head = (*a)->next;
-	temp = (*a);
-	temp->next = (*b);
+	(*a)->next = (*b);
+	(*b) = (*a);
 	(*a) = head;
-	(*b) = temp;
 }
 
 void	pushing(t_stack **a, t_stack **b, char c)
