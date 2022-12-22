@@ -6,7 +6,7 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:07:52 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/20 18:23:04 by del-yaag         ###   ########.fr       */
+/*   Updated: 2022/12/21 22:58:29 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,412 +41,119 @@ void	add_node(t_stack **a, char **argv, int argc)
 	*a = top;
 }
 
-static void	give_indexs(t_stack **a, int i, int min)
+void	check_cases_three(t_stack **a, int first, int second, int third)
 {
-	t_stack	*top;
-
-	top = *a;
-	while (top)
+	if (second > third && first > third)
 	{
-		if (top->data == min)
-		{
-			top->index = i;
-			break ;
-		}
-		top = top->next;
+		swaping(a, NULL, 'a');
+		rev_retating(a, NULL, 'a');
 	}
+	else if (second > third && first < third)
+		swaping(a, NULL, 'a');
+	else if (second < third && first > third)
+		retating(a, NULL, 'a');
+	else if (second < third && first < third)
+		swaping(a, NULL, 'a');
 }
 
-void	min_index(t_stack **a)
+void	sort_three_numbers(t_stack **a)
 {
-	t_stack	*top;
-	int		min;
-	int		i;
+	int	first;
+	int	second;
+	int	third;
 
-	i = -1;
-	while (++i < ft_lstsize(*a))
-	{
-		top = *a;
-		min = INT_MAX;
-		while (top)
-		{
-			if (top->index == -1)
-				if (top->data < min)
-					min = top->data;
-			top = top->next;
-		}
-		give_indexs(a, i, min);
-	}
-}
-
-void	r_indexes(t_stack **a, t_stack **b, int num, int real)
-{
-	t_stack	*last;
-	
-	last = *b;
-	if ((last->index >= num - real) && (last->index < num - (real / 2)))
-		retating(a, b, 'b');
+	first = (*a)->index;
+	second = (*a)->next->index;
+	third = (*a)->next->next->index;
+	if (first > second)
+		check_cases_three(a, first, second, third);
 	else
-		return ;
+	{
+		if ((second < third && first < third)
+			|| (second > third && first < third))
+		{
+			swaping(a, NULL, 'a');
+			retating(a, NULL, 'a');
+		}
+		else if (second > third && first > third)
+			rev_retating(a, NULL, 'a');
+	}
 }
 
-int	division_num(t_stack **stack)
-{
-	int	num;
-	
-	if (ft_lstsize(*stack) >= 5 && ft_lstsize(*stack) <= 100)
-		num = ft_lstsize(*stack) / 5;
-	else if (ft_lstsize(*stack) > 100 && ft_lstsize(*stack) <= 500)
-		num = ft_lstsize(*stack) / 10;
-	
-	return (num);
-}
-
-int	find_node(t_stack *b, int in)
+void	sort_for_numbers(t_stack **a, t_stack **b)
 {
 	int	i;
 
-	i = 0;
-	while (b)
+	i = find_node(*a, 0);
+	ret_rev_b(b, a, i, 3);
+	pushing(a, b, 'a');
+	sort_three_numbers(a);
+	pushing(a, b, 'b');
+}
+
+void	sort_five_numbers(t_stack **a, t_stack **b)
+{
+	int	i;
+	int	j;
+
+	i = find_node(*a, 1);
+	ret_rev_b(b, a, i, 5);
+	pushing(b, a, 'a');
+	// j = find_node(*a, 0);
+	// ret_rev_b(b, a, j, 4);
+	// pushing(a, b, 'a');
+	sort_three_numbers(a);
+	pushing(a, b, 'b');
+	// pushing(a, b, 'b');
+}
+
+void	sort_smaler_numbers(t_stack **a, t_stack **b, int i, int j)
+{
+	int	size;
+
+	size = ft_lstsize(*a);
+	if (size == 2)
+		swaping(a, b, 'a');
+	else if (size == 3)
+		sort_three_numbers(a);
+	else if (size == 4)
+		sort_for_numbers(a, b);
+	else if (size == 5)
+		sort_five_numbers(a, b);
+	else if (size >= 6)
 	{
-		if (b->index == in)
-			return (i);
-		i++;
-		b = b->next;
+		push_2b(a, b);
+		push_2a(a, b, i, j);
 	}
-	return (-1);
 }
 
-int check_closer(int ind1, int ind2, int length)
+int	sorted(t_stack *a)
 {
-	if (ind1 <= length / 2)
-		ind1 = ind1;
-	else
-		ind1 = length - ind1;
+	int	num;
 
-	if (ind2 <= length / 2)
-		ind2 = ind2;
-	else
-		ind2 = length - ind2;
-
-	if (ind1 == -1)
-		return (1);
-	else if (ind2 == -1)
-		return (0);
-
-	if (ind1 > ind2)
-		return (1);
-	else
-		return (0);
-}
-
-void check_smaller(t_stack **a, t_stack **b)
-{
-	if (ft_lstsize(*a) > 1)
+	while (a)
 	{
-		if ((*a)->index > (*a)->next->index)
-			swaping(a, b, 'a');
+		if (a->next)
+			num = a->next->data;
 		else
-			return ;
+			num = a->data;
+		if (num < a->data)
+			return (0);
+		a = a->next;
 	}
-	else
-		return ;
-}
-
-void ret_rev_b(t_stack **a, t_stack **b, int i, int num)
-{
-	if (i <= num / 2)
-	{
-		while (i > 0)
-		{
-			retating(a, b, 'b');
-			i--;
-		}
-	}
-	else
-	{
-		while (i <= num)
-		{
-			rev_retating(a, b, 'b');
-			i++;
-		}
-	}
-}
-
-void	push_2a(t_stack **a, t_stack **b)
-{
-	int 	num;
-	int		i;
-	int		j;
-	
-	// while (*b)
-	// {
-	// 	num = ft_lstsize(*b) - 1;
-	// 	i = find_node(*a, *b, num);
-	// 	j = find_node(*a, *b, num - 1);
-	// 	// if (i == 0 || j == 0)
-	// 	// {
-	// 	// 	pushing(a, b, 'b');
-	// 	// 	printf("pushine achriif!!!");	
-	// 	// }
-	// 	// else
-	// 	// {
-	// 		while (i != -1 || j != -1)
-	// 		{
-	// 			if (i == -1 && j == -1)
-	// 				break;
-	// 			i = find_node(*a, *b, num);
-	// 			// j = find_node(*a, *b, num - 1);
-	// 			if ((i != -1 && check_closer(i, j, num) == 0) || j == -1)
-	// 			{
-	// 				ret_rev_b(a, b, i, num);
-	// 				pushing(a, b, 'b');
-	// 				num = ft_lstsize(*b) - 1;
-	// 				j = find_node(*a, *b, num);
-	// 				i = -1;
-	// 			}
-	// 			else if ((j != -1 && check_closer(i, j, num) == 1) || i == -1)
-	// 			{
-	// 				ret_rev_b(a, b, j, num);
-	// 				pushing(a, b, 'b');
-	// 				j = -1;
-	// 			}
-	// 		}
-	// 		// break ;
-	// 	// }
-	// }
-
-	j = -1;
-	i = -1;
-	while (*b)
-	{
-		if (i == - 1 && j == -1)
-			num = ft_lstsize(*b) - 1;
-		i = find_node(*b, num);
-		j = find_node(*b, num - 1);
-		if (i != -1 && !check_closer(i, j, ft_lstsize(*b) - 1))
-		{
-			ret_rev_b(a, b, i, ft_lstsize(*b) - 1);
-			pushing(a, b, 'b');
-			if (j == -1)
-				check_smaller(a, b);
-		}
-		else if (j != -1 && check_closer(i, j, ft_lstsize(*b) - 1))
-		{
-			ret_rev_b(a, b, j, ft_lstsize(*b) - 1);
-			pushing(a, b, 'b');
-			if (i == -1)
-				check_smaller(a, b);
-		}
-	}
-}
-// void	push_2a(t_stack **a, t_stack **b)
-// {
-// 	t_stack	*top;
-// 	int 	num;
-// 	int		i;
-// 	int		j;
-	
-// 	while (*b)
-// 	{
-// 		if (ft_lstsize(*b) >= 2)
-// 		{	
-// 			num = ft_lstsize(*b) - 1;
-// 			i = find_node(*a, *b, num);
-// 			if ((*b)->index == num)
-// 			{
-// 				pushing(a, b, 'b');
-// 				check_smaller(a, b);
-// 			}
-// 			else
-// 				ret_rev_b(a, b, &i, num);
-// 		}
-// 		else
-// 		{
-// 			pushing(a, b, 'b');
-// 			check_smaller(a, b);
-// 		}
-// 	}
-// }
-
-// void	push_2a(t_stack **a, t_stack **b)
-// {
-// 	t_stack	*top;
-// 	int 	num;
-// 	int		i;
-// 	int		j;
-
-// 	while (*b)
-// 	{
-// 		// top = *b;
-// 		num = ft_lstsize(*b) - 1;
-// 		if (num >= 2)
-// 		{	
-// 			i = find_node(*a, *b, num);
-// 			j = find_node(*a, *b, num - 1);
-// 			if ((*b)->index == num - 1 || (*b)->index == num - 2)
-// 			{
-// 				pushing(a, b, 'b');
-// 				check_smaller(a, b);
-// 			}
-// 			else
-// 			{
-// 				if (check_closer(i, j, num - 1) == 0)
-// 				{	
-// 					if (i <= num / 2)
-// 					{
-// 						while (i >= 0)
-// 						{
-// 							retating(a, b, 'b');
-// 							i--;
-// 						}
-// 					}
-// 					else
-// 					{
-// 						while (i <= num)
-// 						{
-// 							rev_retating(a, b, 'b');
-// 							i++;
-// 						}
-// 					}
-// 				}
-// 				else
-// 				{
-// 					if (j <= num / 2)
-// 					{
-// 						while (j >= 0)
-// 						{
-// 							retating(a, b, 'b');
-// 							j--;
-// 						}
-// 					}
-// 					else
-// 					{
-// 						while (j <= num)
-// 						{
-// 							rev_retating(a, b, 'b');
-// 							j++;
-// 						}
-// 					}
-// 				}
-// 			}
-// 		}
-// 		else
-// 		{
-// 			pushing(a, b, 'b');
-// 			check_smaller(a, b);
-// 		}	
-// 	}
-// }
-
-// void	push_2a(t_stack **a, t_stack **b)
-// {
-// 	t_stack	*top;
-// 	int 	num;
-// 	int		i;
-// 	int		j;
-
-// 	num = ft_lstsize(*b);
-// 	i = find_node(*a, *b, num - 1);
-// 	printf("%d\n", check_closer(i, j, num));
-// 	while (*b)
-// 	{
-// 		num = ft_lstsize(*b);
-// 		i = find_node(*a, *b, num - 1);
-// 		if ((*b)->index == num - 1)
-// 			pushing(a, b, 'b');
-// 		else
-// 		{
-// 			if (i < num / 2)
-// 			{
-// 				while (i >= 0)
-// 				{
-// 					retating(a, b, 'b');
-// 					i--;
-// 				}
-// 			}
-// 			else
-// 			{
-// 				while (i < num)
-// 				{
-// 					rev_retating(a, b, 'b');
-// 					i++;
-// 				}
-// 			}
-// 		}
-// 	}
-// }
-
-// void	push_2bb(t_stack **a, t_stack **b)
-// {
-// 	t_stack	*top;
-// 	int 	num;
-// 	int		i;
-// 	int		j;
-
-// 	num = ft_lstsize(*a);
-// 	i = find_node(*b, *a, num - 1);
-// 	while (*a)
-// 	{
-// 		num = ft_lstsize(*a);
-// 		i = find_node(*b, *a, num - 1);
-// 		if ((*a)->index == num - 1)
-// 			pushing(a, b, 'a');
-// 		else
-// 		{
-// 			if (i < num / 2)
-// 			{
-// 				while (i > 0)
-// 				{
-// 					retating(a, b, 'b');
-// 					i--;
-// 				}
-// 			}
-// 			else
-// 			{
-// 				while (i < num)
-// 				{
-// 					rev_retating(a, b, 'b');
-// 					i++;
-// 				}
-// 			}
-// 		}
-// 	}
-// }
-
-void	push_2b(t_stack **a, t_stack **b)
-{
-	int		num;
-	size_t	real;
-	size_t	i;
-
-	i = 0;
-	num = division_num(a);
-	real = num;
-	while (*a)
-	{
-		if ((*a)->index < num)
-		{
-			pushing(a, b, 'a');
-			if (ft_lstsize(*b) >= 2)
-				r_indexes(a, b, num, real);
-		}
-		else
-			retating(a, b, 'a');
-		if (ft_lstsize(*b) == num)
-			num += real;
-	}
+	return (1);
 }
 
 int	main(int argc, char **argv)
 {
-	t_stack		*a;
-	t_stack		*b;
-	t_stack		*h;
-	size_t		i;
-	char		ptr;
+	t_stack	*a;
+	t_stack	*b;
+	t_stack	*h;
+	size_t	i;
+	size_t	j;
 
-	i = 0;
+	i = -1;
+	j = -1;
 	if (argc > 1)
 	{
 		if (check_num(argc, argv) == 0)
@@ -455,21 +162,15 @@ int	main(int argc, char **argv)
 		{
 			add_node(&a, argv, argc);
 			min_index(&a);
-			push_2b(&a, &b);
-			// h = b;
-			// while (h)
-			// {
-			// 	printf("%d\t---->\t%d\n", h->data, h->index);
-			// 	h = h->next;
-			// }
-			push_2a(&a, &b);
-			// h = a;
-			// while (h)
-			// {
-			// 	printf("%d\t---->\t%d\n", h->data, h->index);
-			// 	h = h->next;
-			// }
-			// find_node(a, b, 466);
+			if (sorted(a) == 1)
+				return (1);
+			sort_smaler_numbers(&a, &b, i, j);
+			h = a;
+			while (h)
+			{
+				printf("%d\t---->\t%d\n", h->data, h->index);
+				h = h->next;
+			}
 		}
 	}
 	return (0);
