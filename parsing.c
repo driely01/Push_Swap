@@ -1,17 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parce.c                                            :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 14:35:09 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/17 11:53:32 by del-yaag         ###   ########.fr       */
+/*   Updated: 2022/12/22 18:17:03 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/*
+	here we have function for:
+		# check_all (check is the charecters are a digits)
+		
+		# convert_and_check (covert characters to long long numbers
+			and check the min/max of integer range)
+			
+		# check_doubles (check if there is a duplicate number)
+		
+		# check_num (in this function we check all the staff above)
+*/
 static int	check_all(char **splited, size_t i)
 {
 	size_t	j;
@@ -75,7 +86,7 @@ static int	check_doubles(char **str, size_t i)
 	while (j < i - 1)
 	{
 		k = j + 1;
-		while (k < i - 1 )
+		while (k < i - 1)
 		{
 			if (nums[j] == nums[k])
 				return (0);

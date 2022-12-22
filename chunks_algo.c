@@ -6,12 +6,26 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 17:01:06 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/21 17:29:32 by del-yaag         ###   ########.fr       */
+/*   Updated: 2022/12/22 16:09:59 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/*
+	here we have function for:
+		# r_indexes	(check if the number is less than chunk/2
+			if it is should retate it down)
+			
+		# ret_rev_b	(check the position of index we search for and
+			retate/reverse retate it to send it at the top of stack)
+
+		# check_smaller (check if the top stack is greater than next and swap it)
+		
+		# push_2b (pushing to stack b chunk by chunk)
+		
+		# push_2a (pushing to stack b biggest index in everytime)
+*/
 int	r_indexes(t_stack **a, t_stack **b, int num, int real)
 {
 	t_stack	*last;

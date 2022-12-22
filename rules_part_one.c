@@ -6,7 +6,7 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 15:24:00 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/21 17:23:29 by del-yaag         ###   ########.fr       */
+/*   Updated: 2022/12/22 18:17:20 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_lstsize(t_stack *lst)
 {
-	size_t		count;
+	size_t	count;
 	t_stack	*ptr;
 
 	count = 0;
