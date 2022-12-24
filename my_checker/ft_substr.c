@@ -6,40 +6,40 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 14:03:51 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/23 12:15:31 by del-yaag         ###   ########.fr       */
+/*   Updated: 2022/12/23 18:12:22 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
-static void	ft_bzero(void *s, size_t n)
-{
-	char	*p;
-	size_t	i;
+// static void	ft_bzero(void *s, size_t n)
+// {
+// 	char	*p;
+// 	size_t	i;
 
-	i = 0;
-	p = (char *)s;
-	while (i < n)
-	{
-		p[i] = '\0';
-		i++;
-	}
-}
+// 	i = 0;
+// 	p = (char *)s;
+// 	while (i < n)
+// 	{
+// 		p[i] = '\0';
+// 		i++;
+// 	}
+// }
 
-void	*ft_calloc(size_t number, size_t size)
-{
-	void	*p;
-	int		i;
+// void	*ft_calloc(size_t number, size_t size)
+// {
+// 	void	*p;
+// 	int		i;
 
-	i = number * size;
-	if ((number && (i / number) != size) || (size && (i / size) != number))
-		return (NULL);
-	p = malloc(i);
-	if (!p)
-		return (0);
-	ft_bzero(p, number * size);
-	return (p);
-}
+// 	i = number * size;
+// 	if ((number && (i / number) != size) || (size && (i / size) != number))
+// 		return (NULL);
+// 	p = malloc(i);
+// 	if (!p)
+// 		return (0);
+// 	ft_bzero(p, number * size);
+// 	return (p);
+// }
 
 static void	*ft_cpy(char *p, char const *s2, unsigned int start, size_t l)
 {

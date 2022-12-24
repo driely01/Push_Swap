@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   fill_free_list.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/07 15:07:52 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/24 13:31:38 by del-yaag         ###   ########.fr       */
+/*   Created: 2022/12/23 20:58:33 by del-yaag          #+#    #+#             */
+/*   Updated: 2022/12/23 21:03:31 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 char	**ft_free(char **str)
 {
@@ -35,28 +35,41 @@ void	ft_lstclear(t_stack **lst)
 	}
 }
 
-int	main(int argc, char **argv)
+void	fill_node(t_stack **a, t_stack **top, char **splited)
 {
-	t_stack	*a;
-	t_stack	*b;
 	size_t	i;
-	size_t	j;
 
-	i = -1;
-	j = -1;
-	if (argc > 1)
+	i = 0;
+	while (splited[++i])
 	{
-		if (check_num(argc, argv) == 0)
-			return (1);
+		if (!(*a))
+		{
+			*a = malloc(sizeof(t_stack));
+			*top = *a;
+		}
 		else
 		{
-			add_node(&a, argv, argc);
-			min_index(&a);
-			if (sorted(a) == 1)
-				return (1);
-			sort_smaller_numbers(&a, &b, i, j);
+			(*a)->next = malloc(sizeof(t_stack));
+			*a = (*a)->next;
 		}
-		ft_lstclear(&a);
+		if (!(*a))
+			return ;
+		(*a)->data = (int)ft_atoi(splited[i]);
+		(*a)->index = -1;
 	}
-	return (0);
+}
+
+void	add_node(t_stack **a, char **argv, int argc)
+{
+	char	*joined;
+	char	**splited;
+	t_stack	*top;
+
+	joined = ft_strjoin(argc, argv, " ");
+	splited = ft_split(joined, ' ');
+	free(joined);
+	fill_node(a, &top, splited);
+	ft_free(splited);
+	(*a)->next = NULL;
+	*a = top;
 }

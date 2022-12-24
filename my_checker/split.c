@@ -6,11 +6,11 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 14:34:54 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/23 19:03:01 by del-yaag         ###   ########.fr       */
+/*   Updated: 2022/12/23 21:01:54 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 static int	ft_words_count(const char *s, char c)
 {

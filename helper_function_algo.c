@@ -6,7 +6,7 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 17:09:32 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/22 12:41:36 by del-yaag         ###   ########.fr       */
+/*   Updated: 2022/12/23 18:26:26 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ int	division_num(t_stack **stack)
 		num = ft_lstsize(*stack) / 5;
 	else if (ft_lstsize(*stack) > 100 && ft_lstsize(*stack) <= 500)
 		num = ft_lstsize(*stack) / 9;
+	else
+		num = ft_lstsize(*stack) / 10;
 	return (num);
 }
 

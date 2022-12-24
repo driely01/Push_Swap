@@ -6,7 +6,7 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 13:20:45 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/22 15:36:20 by del-yaag         ###   ########.fr       */
+/*   Updated: 2022/12/24 15:23:29 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,31 +23,41 @@
 			
 		# sorted (check if the list is sorted or not)
 */
-void	add_node(t_stack **a, char **argv, int argc)
+static void	fill_node(t_stack **a, t_stack **top, char **splited)
 {
-	char	*joined;
-	char	**splited;
 	size_t	i;
-	t_stack	*top;
 
 	i = 0;
-	joined = ft_strjoin(argc, argv, " ");
-	splited = ft_split(joined, ' ');
 	while (splited[++i])
 	{
 		if (!(*a))
 		{
 			*a = malloc(sizeof(t_stack));
-			top = *a;
+			*top = *a;
 		}
 		else
 		{
 			(*a)->next = malloc(sizeof(t_stack));
 			*a = (*a)->next;
 		}
+		if (!(*a))
+			return ;
 		(*a)->data = (int)ft_atoi(splited[i]);
 		(*a)->index = -1;
 	}
+}
+
+void	add_node(t_stack **a, char **argv, int argc)
+{
+	char	*joined;
+	char	**splited;
+	t_stack	*top;
+
+	joined = ft_strjoin(argc, argv, " ");
+	splited = ft_split(joined, ' ');
+	free(joined);
+	fill_node(a, &top, splited);
+	ft_free(splited);
 	(*a)->next = NULL;
 	*a = top;
 }
@@ -85,15 +95,9 @@ void	sort_smaller_numbers(t_stack **a, t_stack **b, int i, int j)
 
 int	sorted(t_stack *a)
 {
-	int	num;
-
-	while (a)
+	while (a && a->next)
 	{
-		if (a->next)
-			num = a->next->data;
-		else
-			num = a->data;
-		if (num < a->data)
+		if (a->data > a->next->data)
 			return (0);
 		a = a->next;
 	}

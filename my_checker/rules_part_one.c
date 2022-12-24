@@ -6,11 +6,11 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 15:24:00 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/24 15:23:01 by del-yaag         ###   ########.fr       */
+/*   Updated: 2022/12/23 17:20:42 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 int	ft_lstsize(t_stack *lst)
 {
@@ -46,20 +46,13 @@ void	swap_all(t_stack **a)
 void	swaping(t_stack **a, t_stack **b, char c)
 {
 	if (c == 'a')
-	{
 		swap_all(a);
-		write(1, "sa\n", 3);
-	}
 	else if (c == 'b')
-	{
 		swap_all(b);
-		write(1, "sb\n", 3);
-	}
 	else if (c == 't')
 	{
 		swap_all(a);
 		swap_all(b);
-		write(1, "ss\n", 3);
 	}
 }
 
@@ -78,13 +71,7 @@ void	push_all(t_stack **a, t_stack **b)
 void	pushing(t_stack **a, t_stack **b, char c)
 {
 	if (c == 'a')
-	{
 		push_all(a, b);
-		write(1, "pb\n", 3);
-	}
 	else if (c == 'b')
-	{
 		push_all(b, a);
-		write(1, "pa\n", 3);
-	}
 }

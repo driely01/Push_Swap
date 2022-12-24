@@ -6,11 +6,11 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 14:35:09 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/24 15:22:25 by del-yaag         ###   ########.fr       */
+/*   Updated: 2022/12/24 15:22:39 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 /*
 	here we have function for:
@@ -23,6 +23,23 @@
 		
 		# check_num (in this function we check all the staff above)
 */
+int	checker_parsing(char *line, char *ptr)
+{
+	if (!(!ft_strcmp(line, "sa\n") || !ft_strcmp(line, "sb\n")
+			|| !ft_strcmp(line, "ss\n") || !ft_strcmp(line, "ra\n")
+			|| !ft_strcmp(line, "rb\n") || !ft_strcmp(line, "rr\n")
+			|| !ft_strcmp(line, "pa\n") || !ft_strcmp(line, "pb\n")
+			|| !ft_strcmp(line, "rra\n") || !ft_strcmp(line, "rrb\n")
+			|| !ft_strcmp(line, "rrr\n")))
+	{	
+		printf("Error\n");
+		free(line);
+		free(ptr);
+		exit (0);
+	}
+	return (1);
+}
+
 static int	check_all(char **splited, size_t i)
 {
 	size_t	j;
@@ -51,11 +68,11 @@ static int	check_all(char **splited, size_t i)
 
 static int	convert_and_check(char **str, size_t i)
 {
-	size_t	j;
-	long	*nums;
+	size_t		j;
+	long long	*nums;
 
 	j = 0;
-	nums = malloc(sizeof(long) * i);
+	nums = malloc(sizeof(long long) * i);
 	i = 1;
 	while (str[i])
 		nums[j++] = ft_atoi(str[i++]);
