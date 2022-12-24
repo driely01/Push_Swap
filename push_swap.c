@@ -6,7 +6,7 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:07:52 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/24 13:31:38 by del-yaag         ###   ########.fr       */
+/*   Updated: 2022/12/24 21:07:23 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	main(int argc, char **argv)
 	if (argc > 1)
 	{
 		if (check_num(argc, argv) == 0)
-			return (1);
+			exit (0);
 		else
 		{
 			add_node(&a, argv, argc);

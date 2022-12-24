@@ -6,7 +6,7 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 14:00:08 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/24 14:01:57 by del-yaag         ###   ########.fr       */
+/*   Updated: 2022/12/24 22:19:56 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,20 @@ static void	instraction(t_stack **a, t_stack **b, char *inst)
 		error_handling();
 }
 
+static void	null_case(t_stack **a, t_stack **b)
+{
+	if (sorted(*a) && !(*b))
+	{
+		write(1, "OK\n", 3);
+		exit (0);
+	}
+	else
+	{
+		write(1, "KO\n", 3);
+		exit (0);
+	}
+}
+
 void	do_instractions(t_stack **a, t_stack **b)
 {
 	char	*inst;
@@ -66,6 +80,8 @@ void	do_instractions(t_stack **a, t_stack **b)
 	inst = get_next_line(0);
 	joined = NULL;
 	i = 0;
+	if (!inst)
+		null_case(a, b);
 	while (inst)
 	{
 		checker_parsing(inst, joined);

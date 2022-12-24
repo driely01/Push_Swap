@@ -6,7 +6,7 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 14:35:09 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/24 17:26:30 by del-yaag         ###   ########.fr       */
+/*   Updated: 2022/12/24 22:20:28 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,23 +23,6 @@
 		
 		# check_num (in this function we check all the staff above)
 */
-int	checker_parsing(char *line, char *ptr)
-{
-	if (!(!ft_strcmp(line, "sa\n") || !ft_strcmp(line, "sb\n")
-			|| !ft_strcmp(line, "ss\n") || !ft_strcmp(line, "ra\n")
-			|| !ft_strcmp(line, "rb\n") || !ft_strcmp(line, "rr\n")
-			|| !ft_strcmp(line, "pa\n") || !ft_strcmp(line, "pb\n")
-			|| !ft_strcmp(line, "rra\n") || !ft_strcmp(line, "rrb\n")
-			|| !ft_strcmp(line, "rrr\n")))
-	{	
-		printf("Error\n");
-		free(line);
-		free(ptr);
-		exit (0);
-	}
-	return (1);
-}
-
 static int	check_all(char **splited, size_t i)
 {
 	size_t	j;
@@ -68,11 +51,11 @@ static int	check_all(char **splited, size_t i)
 
 static int	convert_and_check(char **str, size_t i)
 {
-	size_t		j;
-	long long	*nums;
+	size_t	j;
+	long	*nums;
 
 	j = 0;
-	nums = malloc(sizeof(long long) * i);
+	nums = malloc(sizeof(long) * i);
 	if (!nums)
 		return (0);
 	i = 1;
@@ -116,6 +99,27 @@ static int	check_doubles(char **str, size_t i)
 	return (free(nums), 1);
 }
 
+static int	check_spaces(char **str)
+{
+	int	i;
+	int	j;
+
+	i = 1;
+	while (str[i])
+	{
+		j = 0;
+		while (str[i][j])
+		{	
+			if (str[i][j] != ' ')
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	write(1, "Error\n", 6);
+	return (0);
+}
+
 int	check_num(int argc, char **argv)
 {
 	char	*joined;
@@ -125,6 +129,8 @@ int	check_num(int argc, char **argv)
 
 	i = 1;
 	j = 0;
+	if (!check_spaces(argv))
+		exit(0);
 	joined = ft_strjoin(argc, argv, " ");
 	splited = ft_split(joined, ' ');
 	free(joined);
