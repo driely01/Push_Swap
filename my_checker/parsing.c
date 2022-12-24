@@ -6,7 +6,7 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 14:35:09 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/24 15:22:39 by del-yaag         ###   ########.fr       */
+/*   Updated: 2022/12/24 17:26:30 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ static int	convert_and_check(char **str, size_t i)
 
 	j = 0;
 	nums = malloc(sizeof(long long) * i);
+	if (!nums)
+		return (0);
 	i = 1;
 	while (str[i])
 		nums[j++] = ft_atoi(str[i++]);
@@ -94,6 +96,8 @@ static int	check_doubles(char **str, size_t i)
 
 	j = 0;
 	nums = malloc(sizeof(long) * i);
+	if (!nums)
+		return (0);
 	i = 1;
 	while (str[i])
 		nums[j++] = ft_atoi(str[i++]);
