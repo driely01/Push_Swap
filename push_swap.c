@@ -6,7 +6,7 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:07:52 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/25 12:23:22 by del-yaag         ###   ########.fr       */
+/*   Updated: 2022/12/25 22:02:49 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int	check_spaces(char **str)
 	{
 		j = 0;
 		if (str[i] == 0)
-			return (write(1, "Error\n", 6), 0);
+			return (write(2, "Error\n", 6), 0);
 		if (!find_spaces(str[i]))
-			return (write(1, "Error\n", 6), 0);
+			return (write(2, "Error\n", 6), 0);
 		i++;
 	}
 	return (1);
@@ -65,13 +65,13 @@ int	main(int argc, char **argv)
 	if (argc > 1)
 	{
 		if (check_num(argc, argv) == 0)
-			exit (0);
+			exit (1);
 		else
 		{
 			add_node(&a, argv, argc);
 			min_index(&a);
 			if (sorted(a) == 1)
-				return (0);
+				return (ft_lstclear(&a), 0);
 			sort_smaller_numbers(&a, &b, i, j);
 		}
 		ft_lstclear(&a);

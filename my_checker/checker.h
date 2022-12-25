@@ -6,7 +6,7 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 21:29:23 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/25 12:29:23 by del-yaag         ###   ########.fr       */
+/*   Updated: 2022/12/25 21:55:26 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	rev_retating(t_stack **a, t_stack **b, char c);
 
 //parsing
 int		check_num(int argc, char **argv);
-long	ft_atoi(const char *str);
+long	ft_atoi(const char *str, long *nums);
 char	*ft_strjoin(size_t size, char **strs, char *sep);
 char	**ft_split(char const *s, char c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);

@@ -6,7 +6,7 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 14:00:08 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/24 22:19:56 by del-yaag         ###   ########.fr       */
+/*   Updated: 2022/12/25 18:46:01 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_strcmp(char *s1, char *s2)
 static void	error_handling(void)
 {
 	write(2, "Error\n", 6);
-	exit(0);
+	exit(1);
 }
 
 static void	instraction(t_stack **a, t_stack **b, char *inst)

@@ -6,7 +6,7 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 21:29:04 by del-yvbg          #+#    #+#             */
-/*   Updated: 2022/12/23 17:20:34 by del-yaag         ###   ########.fr       */
+/*   Updated: 2022/12/25 14:49:48 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,16 +78,3 @@ char	*get_next_line(int fd)
 	}
 	return (free(left), left = 0, NULL);
 }
-
-// int	main(void)
-// {
-// 	char	*line;
-
-// 	line = get_next_line(0);
-// 	while (line)
-// 	{
-// 		printf("%s", line);
-// 		line = get_next_line(0);
-// 	}
-// 	return (0);
-// }

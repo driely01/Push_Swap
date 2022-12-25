@@ -6,7 +6,7 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 14:35:09 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/25 12:26:08 by del-yaag         ###   ########.fr       */
+/*   Updated: 2022/12/25 21:56:49 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static int	convert_and_check(char **str, size_t i)
 		return (0);
 	i = 1;
 	while (str[i])
-		nums[j++] = ft_atoi(str[i++]);
+		nums[j++] = ft_atoi(str[i++], nums);
 	j = 0;
 	while (j < i - 1)
 	{
@@ -83,7 +83,7 @@ static int	check_doubles(char **str, size_t i)
 		return (0);
 	i = 1;
 	while (str[i])
-		nums[j++] = ft_atoi(str[i++]);
+		nums[j++] = ft_atoi(str[i++], nums);
 	j = 0;
 	while (j < i - 1)
 	{
@@ -130,13 +130,13 @@ int	check_num(int argc, char **argv)
 	while (splited[i])
 	{
 		if (!check_all(splited, i))
-			return (ft_free(splited), write(1, "Error\n", 6), 0);
+			return (ft_free(splited), write(2, "Error\n", 6), 0);
 		i++;
 	}
 	if (check_doubles(splited, i) == 0)
-		return (ft_free(splited), write(1, "Error\n", 6), 0);
+		return (ft_free(splited), write(2, "Error\n", 6), 0);
 	if (convert_and_check(splited, i) == 0)
-		return (ft_free(splited), write(1, "Error\n", 6), 0);
+		return (ft_free(splited), write(2, "Error\n", 6), 0);
 	ft_free(splited);
 	return (1);
 }

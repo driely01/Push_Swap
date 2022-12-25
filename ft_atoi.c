@@ -6,13 +6,13 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 20:53:39 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/25 12:20:51 by del-yaag         ###   ########.fr       */
+/*   Updated: 2022/12/25 22:06:17 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static long	ft_calculater(const char *str, int i, int sign)
+static long	ft_calculater(const char *str, int i, int sign, long *nums)
 {
 	long	res;
 	long	old;
@@ -24,12 +24,14 @@ static long	ft_calculater(const char *str, int i, int sign)
 		res *= 10;
 		if ((res / 10) != old && sign == 1)
 		{
-			write(1, "Error\n", 6);
+			write(2, "Error\n", 6);
+			free(nums);
 			exit (1);
 		}
 		if ((res / 10) != old && sign == -1)
 		{
-			write(1, "Error\n", 6);
+			write(2, "Error\n", 6);
+			free(nums);
 			exit (1);
 		}
 		res += (str[i] - 48);
@@ -38,7 +40,7 @@ static long	ft_calculater(const char *str, int i, int sign)
 	return (res * sign);
 }
 
-long	ft_atoi(const char *str)
+long	ft_atoi(const char *str, long *nums)
 {
 	long	i;
 	int		sign;
@@ -54,5 +56,5 @@ long	ft_atoi(const char *str)
 			sign *= -1;
 		i++;
 	}
-	return (ft_calculater(str, i, sign));
+	return (ft_calculater(str, i, sign, nums));
 }

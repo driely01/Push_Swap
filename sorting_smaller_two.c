@@ -6,7 +6,7 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 13:20:45 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/24 17:38:21 by del-yaag         ###   ########.fr       */
+/*   Updated: 2022/12/25 21:59:13 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void	fill_node(t_stack **a, t_stack **top, char **splited)
 			ft_lstclear(a);
 			return ;
 		}
-		(*a)->data = (int)ft_atoi(splited[i]);
+		(*a)->data = (int)ft_atoi(splited[i], NULL);
 		(*a)->index = -1;
 	}
 }

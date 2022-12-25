@@ -6,7 +6,7 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 12:37:55 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/25 12:27:47 by del-yaag         ###   ########.fr       */
+/*   Updated: 2022/12/25 18:48:16 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ void	checker_parsing(char *line, char *ptr)
 			|| !ft_strcmp(line, "rra\n") || !ft_strcmp(line, "rrb\n")
 			|| !ft_strcmp(line, "rrr\n")))
 	{	
-		printf("Error\n");
+		write(2, "Error\n", 6);
 		free(line);
 		free(ptr);
-		exit (0);
+		exit (1);
 	}
 }
 
@@ -79,7 +79,7 @@ int	main(int argc, char **argv)
 	if (argc > 1)
 	{
 		if (check_num(argc, argv) == 0)
-			exit(0);
+			exit(1);
 		else
 			checker_func(&a, &b, argc, argv);
 	}
