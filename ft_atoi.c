@@ -6,7 +6,7 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 20:53:39 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/24 16:09:40 by del-yaag         ###   ########.fr       */
+/*   Updated: 2022/12/25 12:20:51 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ static long	ft_calculater(const char *str, int i, int sign)
 		if ((res / 10) != old && sign == 1)
 		{
 			write(1, "Error\n", 6);
-			exit (0);
+			exit (1);
 		}
 		if ((res / 10) != old && sign == -1)
 		{
 			write(1, "Error\n", 6);
-			exit (0);
+			exit (1);
 		}
 		res += (str[i] - 48);
 		i++;

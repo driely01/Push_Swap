@@ -6,11 +6,25 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 12:37:55 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/24 22:20:33 by del-yaag         ###   ########.fr       */
+/*   Updated: 2022/12/25 12:27:47 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
+
+int	find_spaces(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] != ' ')
+			return (1);
+		i++;
+	}
+	return (0);
+}
 
 void	checker_parsing(char *line, char *ptr)
 {

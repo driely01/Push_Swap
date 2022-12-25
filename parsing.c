@@ -6,7 +6,7 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 14:35:09 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/24 21:41:58 by del-yaag         ###   ########.fr       */
+/*   Updated: 2022/12/25 12:26:08 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int	check_all(char **splited, size_t i)
 			j++;
 		else
 		{
-			if (splited[i][j] == '-' && j == 0)
+			if ((splited[i][j] == '-' || splited[i][j] == '+') && j == 0)
 			{
 				j++;
 				if (splited[i][j] >= '0' && splited[i][j] <= '9')
@@ -99,24 +99,17 @@ static int	check_doubles(char **str, size_t i)
 	return (free(nums), 1);
 }
 
-static int	check_spaces(char **str)
+int	find_spaces(char *str)
 {
 	int	i;
-	int	j;
 
-	i = 1;
+	i = 0;
 	while (str[i])
 	{
-		j = 0;
-		while (str[i][j])
-		{	
-			if (str[i][j] != ' ')
-				return (1);
-			j++;
-		}
+		if (str[i] != ' ')
+			return (1);
 		i++;
 	}
-	write(1, "Error\n", 6);
 	return (0);
 }
 
@@ -130,7 +123,7 @@ int	check_num(int argc, char **argv)
 	i = 1;
 	j = 0;
 	if (!check_spaces(argv))
-		exit(0);
+		exit(1);
 	joined = ft_strjoin(argc, argv, " ");
 	splited = ft_split(joined, ' ');
 	free(joined);

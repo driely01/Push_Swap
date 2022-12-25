@@ -6,7 +6,7 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:08:04 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/24 17:37:53 by del-yaag         ###   ########.fr       */
+/*   Updated: 2022/12/25 12:26:18 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ char	*ft_strjoin(size_t size, char **strs, char *sep);
 char	**ft_split(char const *s, char c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 void	add_node(t_stack **a, char **argv, int size);
+int		check_spaces(char **str);
+int		find_spaces(char *str);
 // end parsing
 
 // start chunks list algorithm

@@ -6,11 +6,29 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:07:52 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/24 21:07:23 by del-yaag         ###   ########.fr       */
+/*   Updated: 2022/12/25 12:23:22 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	check_spaces(char **str)
+{
+	int	i;
+	int	j;
+
+	i = 1;
+	while (str[i])
+	{
+		j = 0;
+		if (str[i] == 0)
+			return (write(1, "Error\n", 6), 0);
+		if (!find_spaces(str[i]))
+			return (write(1, "Error\n", 6), 0);
+		i++;
+	}
+	return (1);
+}
 
 char	**ft_free(char **str)
 {
@@ -53,7 +71,7 @@ int	main(int argc, char **argv)
 			add_node(&a, argv, argc);
 			min_index(&a);
 			if (sorted(a) == 1)
-				return (1);
+				return (0);
 			sort_smaller_numbers(&a, &b, i, j);
 		}
 		ft_lstclear(&a);

@@ -6,7 +6,7 @@
 #    By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/07 15:08:14 by del-yaag          #+#    #+#              #
-#    Updated: 2022/12/24 16:33:15 by del-yaag         ###   ########.fr        #
+#    Updated: 2022/12/25 13:09:44 by del-yaag         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,12 +19,18 @@ BNS = my_checker/get_next_line_utils.c my_checker/get_next_line.c my_checker/che
 		my_checker/split.c my_checker/ft_substr.c my_checker/parsing.c my_checker/ft_atoi.c \
 		my_checker/fill_free_list.c my_checker/instraction_app.c
 
+OBJS = $(SRC:.c=.o)
+OBJS_BONUS = $(BNS:.c=.o)
+
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
 NAME = push_swap
 BONUS = checker
+
+%.o: %.c push_swap.h
+	$(CC) $(CC_FLAGS) -c $< -o $@
 
 all: $(NAME)
 	@echo ""
@@ -55,14 +61,14 @@ bonus: $(BONUS)
 	@echo ""
 	@echo ""
 
-$(NAME): $(SRC) push_swap.h
-	$(CC) $(CFLAGS) $(SRC) -o $@
+$(NAME): $(OBJS) push_swap.h
+	$(CC) $(CFLAGS) $(OBJS) -o $@
 	
-$(BONUS): $(BNS) my_checker/checker.h
-	$(CC) $(CFLAGS) $(BNS) -o $@
+$(BONUS): $(OBJS_BONUS) my_checker/checker.h
+	$(CC) $(CFLAGS) $(OBJS_BONUS) -o $@
 
 clean:
-	$(RM) $(NAME) $(BONUS)
+	$(RM) $(OBJS) $(OBJS_BONUS)
 	@echo ""
 	@echo ""
 	@echo "		▄████▄  ██▓   ▓█████▄▄▄      ███▄    █▓█████▓█████▄ "

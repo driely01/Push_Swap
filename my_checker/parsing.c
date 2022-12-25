@@ -6,7 +6,7 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 14:35:09 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/24 22:20:28 by del-yaag         ###   ########.fr       */
+/*   Updated: 2022/12/25 12:30:12 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ static int	check_doubles(char **str, size_t i)
 	return (free(nums), 1);
 }
 
-static int	check_spaces(char **str)
+int	check_spaces(char **str)
 {
 	int	i;
 	int	j;
@@ -108,16 +108,13 @@ static int	check_spaces(char **str)
 	while (str[i])
 	{
 		j = 0;
-		while (str[i][j])
-		{	
-			if (str[i][j] != ' ')
-				return (1);
-			j++;
-		}
+		if (str[i] == 0)
+			return (write(1, "Error\n", 6), 0);
+		if (!find_spaces(str[i]))
+			return (write(1, "Error\n", 6), 0);
 		i++;
 	}
-	write(1, "Error\n", 6);
-	return (0);
+	return (1);
 }
 
 int	check_num(int argc, char **argv)
@@ -130,7 +127,7 @@ int	check_num(int argc, char **argv)
 	i = 1;
 	j = 0;
 	if (!check_spaces(argv))
-		exit(0);
+		exit(1);
 	joined = ft_strjoin(argc, argv, " ");
 	splited = ft_split(joined, ' ');
 	free(joined);
