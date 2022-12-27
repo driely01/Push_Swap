@@ -6,13 +6,13 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 20:53:39 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/25 22:04:45 by del-yaag         ###   ########.fr       */
+/*   Updated: 2022/12/27 15:31:47 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-static long	ft_calculater(const char *str, int i, int sign, long *nums)
+static long	ft_calculater(char *str, int i, int sign)
 {
 	long	res;
 	long	old;
@@ -23,24 +23,16 @@ static long	ft_calculater(const char *str, int i, int sign, long *nums)
 		old = res;
 		res *= 10;
 		if ((res / 10) != old && sign == 1)
-		{
-			write(2, "Error\n", 6);
-			free(nums);
-			exit (1);
-		}
+			return (21474836470);
 		if ((res / 10) != old && sign == -1)
-		{
-			write(2, "Error\n", 6);
-			free(nums);
-			exit (1);
-		}
+			return (21474836470);
 		res += (str[i] - 48);
 		i++;
 	}
 	return (res * sign);
 }
 
-long	ft_atoi(const char *str, long *nums)
+long	ft_atoi(char *str)
 {
 	long	i;
 	int		sign;
@@ -56,5 +48,5 @@ long	ft_atoi(const char *str, long *nums)
 			sign *= -1;
 		i++;
 	}
-	return (ft_calculater(str, i, sign, nums));
+	return (ft_calculater(str, i, sign));
 }
