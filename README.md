@@ -53,4 +53,4 @@ In this project we have to sort data in aspecific rules:
       
   rrb (reverse rotate b): Shift down all elements of stack b by 1.
       The last element becomes the first one.
-rrr : rra and rrb at the same time.
+  rrr : rra and rrb at the same time.
