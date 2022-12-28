@@ -6,7 +6,7 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 15:07:52 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/25 22:02:49 by del-yaag         ###   ########.fr       */
+/*   Updated: 2022/12/28 17:34:27 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ int	main(int argc, char **argv)
 
 	i = -1;
 	j = -1;
+	a = NULL;
+	b = NULL;
 	if (argc > 1)
 	{
 		if (check_num(argc, argv) == 0)
