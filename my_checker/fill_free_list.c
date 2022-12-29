@@ -6,7 +6,7 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 20:58:33 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/28 17:50:30 by del-yaag         ###   ########.fr       */
+/*   Updated: 2022/12/29 11:26:50 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ void	fill_node(t_stack **a, t_stack **top, char **splited)
 		(*a)->data = (int)ft_atoi(splited[i]);
 		(*a)->index = -1;
 	}
+	(*a)->next = NULL;
+	*a = *top;
 }
 
 void	add_node(t_stack **a, char **argv, int argc)
@@ -74,9 +76,4 @@ void	add_node(t_stack **a, char **argv, int argc)
 	free(joined);
 	fill_node(a, &top, splited);
 	ft_free(splited);
-	if (*a)
-	{
-		(*a)->next = NULL;
-		*a = top;
-	}
 }

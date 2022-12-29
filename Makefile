@@ -6,7 +6,7 @@
 #    By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/07 15:08:14 by del-yaag          #+#    #+#              #
-#    Updated: 2022/12/27 15:51:49 by del-yaag         ###   ########.fr        #
+#    Updated: 2022/12/29 11:34:13 by del-yaag         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ NAME = push_swap
 BONUS = checker
 
 %.o: %.c
-	$(CC) $(CC_FLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(NAME)
 	@echo ""
