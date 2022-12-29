@@ -6,7 +6,7 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 14:00:08 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/25 18:46:01 by del-yaag         ###   ########.fr       */
+/*   Updated: 2022/12/29 12:30:35 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	do_instractions(t_stack **a, t_stack **b)
 		null_case(a, b);
 	while (inst)
 	{
-		checker_parsing(inst, joined);
+		checker_parsing(inst, joined, a, b);
 		joined = ft_append(joined, inst);
 		free(inst);
 		inst = get_next_line(0);

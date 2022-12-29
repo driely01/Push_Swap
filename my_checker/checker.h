@@ -6,7 +6,7 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 21:29:23 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/27 15:42:00 by del-yaag         ###   ########.fr       */
+/*   Updated: 2022/12/29 12:31:01 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ char	*ft_strjoin(size_t size, char **strs, char *sep);
 char	**ft_split(char const *s, char c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 void	add_node(t_stack **a, char **argv, int size);
-void	checker_parsing(char *line, char *ptr);
+void	checker_parsing(char *line, char *ptr, t_stack **a, t_stack **b);
 int		ft_strcmp(char *s1, char *s2);
 int		sorted(t_stack *a);
 int		check_spaces(char **str);

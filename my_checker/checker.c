@@ -6,7 +6,7 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 12:37:55 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/25 18:48:16 by del-yaag         ###   ########.fr       */
+/*   Updated: 2022/12/29 12:41:56 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	find_spaces(char *str)
 	return (0);
 }
 
-void	checker_parsing(char *line, char *ptr)
+void	checker_parsing(char *line, char *ptr, t_stack **a, t_stack **b)
 {
 	if (!(!ft_strcmp(line, "sa\n") || !ft_strcmp(line, "sb\n")
 			|| !ft_strcmp(line, "ss\n") || !ft_strcmp(line, "ra\n")
@@ -37,6 +37,8 @@ void	checker_parsing(char *line, char *ptr)
 	{	
 		write(2, "Error\n", 6);
 		free(line);
+		ft_lstclear(a);
+		ft_lstclear(b);
 		free(ptr);
 		exit (1);
 	}
