@@ -1,5 +1,7 @@
 # Push_Swap
 
+<img width="707" alt="Screen Shot 2023-08-08 at 9 11 40 PM" src="https://github.com/driely01/Push_Swap/assets/41493879/f92386e0-42d7-49f4-a031-41fa663606d1">
+
 This project for sort data on a stack, with a limited set of instructions, using
 the lowest possible number of actions. 
 
@@ -26,32 +28,32 @@ In this project we have to sort data in aspecific rules:
 • The goal is to sort in ascending order numbers into stack a. To do so you have the
   following operations at your disposal:
   
-  sa (swap a): Swap the first 2 elements at the top of stack a.
+  `sa` *(swap a)*: Swap the first 2 elements at the top of stack a.
       Do nothing if there is only one or no elements.
       
-  sb (swap b): Swap the first 2 elements at the top of stack b.
+  `sb` *(swap b)*: Swap the first 2 elements at the top of stack b.
       Do nothing if there is only one or no elements.
       
-  ss : sa and sb at the same time.
+  `ss` : sa and sb at the same time.
   
-  pa (push a): Take the first element at the top of b and put it at the top of a.
+  `pa` *(push a)*: Take the first element at the top of b and put it at the top of a.
       Do nothing if b is empty.
       
-  pb (push b): Take the first element at the top of a and put it at the top of b.
+  `pb` *(push b)*: Take the first element at the top of a and put it at the top of b.
       Do nothing if a is empty.
       
-  ra (rotate a): Shift up all elements of stack a by 1.
+  `ra` *(rotate a)*: Shift up all elements of stack a by 1.
       The first element becomes the last one.
       
-  rb (rotate b): Shift up all elements of stack b by 1.
+  `rb` *(rotate b)*: Shift up all elements of stack b by 1.
       The first element becomes the last one.
       
-  rr : ra and rb at the same time.
+  `rr` : ra and rb at the same time.
 
-  rra (reverse rotate a): Shift down all elements of stack a by 1.
+  `rra` *(reverse rotate a)*: Shift down all elements of stack a by 1.
       The last element becomes the first one.
       
-  rrb (reverse rotate b): Shift down all elements of stack b by 1.
+  `rrb` *(reverse rotate b)*: Shift down all elements of stack b by 1.
       The last element becomes the first one.
 
-  rrr : rra and rrb at the same time.
+  `rrr` : rra and rrb at the same time.
