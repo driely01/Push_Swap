@@ -6,11 +6,11 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 20:58:33 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/29 11:26:50 by del-yaag         ###   ########.fr       */
+/*   Updated: 2023/08/08 20:50:58 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "../checker.h"
 
 char	**ft_free(char **str)
 {

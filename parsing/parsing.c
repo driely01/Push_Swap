@@ -6,11 +6,11 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 14:35:09 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/27 15:47:49 by del-yaag         ###   ########.fr       */
+/*   Updated: 2023/08/08 20:39:26 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "../push_swap.h"
 
 /*
 	here we have function for:
@@ -99,22 +99,18 @@ static int	check_doubles(char **str, size_t i)
 	return (free(nums), 1);
 }
 
-int	check_spaces(char **str)
+int	find_spaces(char *str)
 {
 	int	i;
-	int	j;
 
-	i = 1;
+	i = 0;
 	while (str[i])
 	{
-		j = 0;
-		if (str[i] == 0)
-			return (write(2, "Error\n", 6), 0);
-		if (!find_spaces(str[i]))
-			return (write(2, "Error\n", 6), 0);
+		if (str[i] != ' ')
+			return (1);
 		i++;
 	}
-	return (1);
+	return (0);
 }
 
 int	check_num(int argc, char **argv)

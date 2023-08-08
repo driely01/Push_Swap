@@ -6,11 +6,11 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 14:03:51 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/24 17:29:08 by del-yaag         ###   ########.fr       */
+/*   Updated: 2023/08/08 20:51:21 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "../checker.h"
 
 static void	*ft_cpy(char *p, char const *s2, unsigned int start, size_t l)
 {

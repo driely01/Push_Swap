@@ -6,11 +6,11 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 14:00:08 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/29 12:30:35 by del-yaag         ###   ########.fr       */
+/*   Updated: 2023/08/08 20:51:33 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "../checker.h"
 
 int	ft_strcmp(char *s1, char *s2)
 {

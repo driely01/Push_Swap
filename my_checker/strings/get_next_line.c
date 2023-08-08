@@ -6,11 +6,11 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 21:29:04 by del-yvbg          #+#    #+#             */
-/*   Updated: 2022/12/25 14:49:48 by del-yaag         ###   ########.fr       */
+/*   Updated: 2023/08/08 20:51:29 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "../checker.h"
 
 char	*ft_read(char **leftover, char *line, size_t i)
 {

@@ -6,21 +6,21 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 16:59:41 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/23 17:59:59 by del-yaag         ###   ########.fr       */
+/*   Updated: 2023/08/08 20:40:16 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "../push_swap.h"
 
-// size_t	ft_strlen(const char *str)
-// {
-// 	int	i;
+size_t	ft_strlen(const char *str)
+{
+	int	i;
 
-// 	i = 0;
-// 	while (str[i] != '\0')
-// 		i++;
-// 	return (i);
-// }
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
+}
 
 static char	*ft_strcpy(char *dest, char *src)
 {

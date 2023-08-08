@@ -6,11 +6,11 @@
 /*   By: del-yaag <del-yaag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 20:53:39 by del-yaag          #+#    #+#             */
-/*   Updated: 2022/12/27 15:31:47 by del-yaag         ###   ########.fr       */
+/*   Updated: 2023/08/08 20:51:06 by del-yaag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "../checker.h"
 
 static long	ft_calculater(char *str, int i, int sign)
 {
