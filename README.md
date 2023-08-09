@@ -1,6 +1,6 @@
 # Push_Swap
 
-<img width="707" alt="Screen Shot 2023-08-08 at 9 11 40 PM" src="https://github.com/driely01/Push_Swap/assets/41493879/f92386e0-42d7-49f4-a031-41fa663606d1">
+<img width="450" alt="Screen Shot 2023-08-08 at 9 11 40 PM" src="https://github.com/driely01/Push_Swap/assets/41493879/07747294-7f42-4116-b1d3-09adff5358fd">
 
 This project for sort data on a stack, with a limited set of instructions, using
 the lowest possible number of actions. 
