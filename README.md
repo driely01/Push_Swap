@@ -60,3 +60,4 @@ In this project we have to sort data in aspecific rules:
 
 #### Resources
 1. Chunk List: [check it out](https://arxiv.org/pdf/2101.00172.pdf)
+2. Stack data structure: [check it out](https://www.geeksforgeeks.org/introduction-to-stack-data-structure-and-algorithm-tutorials/)
